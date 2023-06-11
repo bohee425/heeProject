@@ -102,14 +102,14 @@
                                     <div class="input-group">
                                         <!-- 사업자번호 자리수는 10자리 000-00-00000 형식 (하이픈 포함시 12자리)-->
                                         <!-- pattern 속성에 정규표현식 입력하여 숫자만 입력가능-->
-                                        <input class="form-control" type="text" name="res_brn" id="res_brn" maxlength="12" pattern="[0-9]{3}-[0-9]{2}-[0-9]{5}">
+                                        <input class="form-control" type="text" name="res_brn" id="res_brn" maxlength="12" pattern="[0-9]{3}-[0-9]{2}-[0-9]{5}" placeholder="'-'빼고 숫자만 입력">
                                         <button type="button" class="btn btn-outline-secondary">인증</button>
                                     </div>
                                 </td>
                             </tr>
 						    <tr>
 						    	<!-- 가게이름 글자수 제한 100자리 -->
-						    	<th scope="row" width="150"><label for="res_name">가게 이름</label></th>
+						    	<th scope="row" width="150"><label for="res_name">가게명</label></th>
 						    	<td><input class="form-control" type="text" name="res_name" id="res_name" aria-label="default input example" maxlength="100"></td>
 						    </tr>
                             <tr>
@@ -117,46 +117,45 @@
                                 <th scope="row"><label for="res_tel">전화번호</label></th>
                                 <td>
                                       <div class="d-flex align-items-center">
-                                        <input class="form-control" type="text" name="res_tel" id="res_tel" maxlength="13">
+                                        <input class="form-control" type="text" name="res_tel" id="res_tel" maxlength="13" placeholder="'-'빼고 숫자만 입력">
                                     </div>
                                 </td>
                             </tr>
 						    <tr>
-                                <th>주소</th>
+                                <th><label for="button-addon2">주소</th>
 								<td>
 								<!-- 다음 api 사용 -->
 								<div class="input-group mb-3">
-									<input type="text" id="sample6_postcode" class="form-control" placeholder="우편번호" aria-label="Recipient's username" aria-describedby="button-addon2">
-									<input type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기" class="btn btn-outline-secondary" id="button-addon2">
+									<input type="text" id="postcode" class="form-control" placeholder="우편번호" aria-label="Recipient's username" aria-describedby="button-addon2">
+									<input type="button" onclick="DaumPostcode()" value="우편번호 찾기" class="btn btn-outline-secondary" id="button-addon2">
 								</div>									
-                                <input type="text" class="form-control" id="sample6_address" placeholder="주소">
+                                <input type="text" class="form-control" id="address" name="address" placeholder="주소" readonly>
 								<div class="input-group mb-3 mt-2">
-                                    <input type="text" class="form-control" id="sample6_detailAddress" placeholder="상세주소"> 
-									<input type="text" class="form-control" id="sample6_extraAddress" placeholder="참고항목">
+                                    <input type="text" class="form-control" id="detailAddress" name="detailAddress" placeholder="상세주소"> 
+									<input type="text" class="form-control" id="extraAddress" placeholder="참고항목">
 								</div>
 								</td>
 						    </tr>
 						    <!-- 영업 시간 시작 -->
 						    <tr>
-                                <th scope="row"><label for="birth">영업시간</label></th>
+                                <th scope="row"><label for="res_open1">영업시간</label></th>
 						    	<td>
                                 <div class="row">
                                     <div class="col-6">
-                                        <input class="form-control" type ="time"> <!-- 영업 시작 시간 -->
+                                        <input class="form-control" type ="time" name="res_open1" id="res_open1"> <!-- 영업 시작 시간 -->
                                     </div>
                                     <div class="col-6">
-                                        <input class="form-control" type ="time"> <!-- 영업 마감 시간 -->
+                                        <input class="form-control" type ="time" name="res_open2" id="res_open2"> <!-- 영업 마감 시간 -->
                                     </div>
                                     <div class="col mt-2">
                                         <input type="text" class="form-control" placeholder="브레이크 시간 00:00 ~ 00:00"> <!-- 브레이크 타입 기록 -->
-                                    </div>
-                                    
+                                    </div>                                    
                                 </div>
                             </td>
 						    </tr>
 						    <!-- 영업 시간 끝 -->
 						    <tr>
-                                <th scope="row"><label for="birth">정기휴무일</label></th> <!-- select box -->
+                                <th scope="row">정기휴무일</th> <!-- select box -->
 						    	<td>
                                     <div class="dropdown">
                                         <select class="form-select form-select" aria-label=".form-select example" style="width: 180px;">
@@ -173,25 +172,50 @@
                                 </td>
 						    </tr>
 						    <tr>
-                                <th scope="row"><label for="birth">가게 편의 시설</label></th>
-						    	<td><input type ="text" class="form-control" placeholder="식당 내 시설을 입력해주세요."></td>
+                                <th scope="row">가게 편의 시설</th>
+						    	<td>
+								  <input class="form-check-input" type="checkbox" name="res_amenity" id="res_amenity">
+								  <label class="form-check-label" for="res_amenity">
+								    단체석
+								  </label>
+								  <input class="form-check-input" type="checkbox" name="res_amenity2" id="res_amenity2">
+								  <label class="form-check-label" for="res_amenity2">
+								    주차
+								  </label>
+								  <input class="form-check-input" type="checkbox" name="res_amenity3" id="res_amenity3">
+								  <label class="form-check-label" for="res_amenity3">
+								    발렛파킹
+								  </label> <br>
+								  <input class="form-check-input" type="checkbox" name="res_amenity4" id="res_amenity4">
+								  <label class="form-check-label" for="res_amenity4">
+								    예약
+								  </label>
+								  <input class="form-check-input" type="checkbox" name="res_amenity5" id="res_amenity5">
+								  <label class="form-check-label" for="res_amenity5">
+								    반려동물 동반
+								  </label>
+								  <input class="form-check-input" type="checkbox" name="res_amenity6" id="res_amenity6">
+								  <label class="form-check-label" for="res_amenity6">
+								    장애인 편의시설
+								  </label>
+						    	</td>
 						    </tr>
-                            <tr>
-                                <th scope="row"><label for="passwd">가게소개</label></th>
-                                <td colspan="2"><textarea class="form-control" rows="5" cols="50"></textarea></td>
-                            </tr>
+<!-- 						    <tr> -->
+<!-- 						    	<th scope="row"><label for="birth">테이블</label></th> -->
+<!-- 						    	<td><button type="button" class="btn btn-warning" style="color: white;" data-bs-toggle="modal" data-bs-target="#talbe">테이블 수정</button></td> -->
+<!-- 						    </tr> -->
 						    <tr>
-						    	<th scope="row"><label for="birth">테이블</label></th>
-						    	<td><button type="button" class="btn btn-warning" style="color: white;" data-bs-toggle="modal" data-bs-target="#talbe">테이블 수정</button></td>
+                                <th scope="row"><label for="res_menu">메뉴</label></th>
+						    	<td><button type="button" id="res_menu" class="btn btn-warning" style="color: white;"  data-bs-toggle="modal" data-bs-target="#menu">메뉴 목록</button></td>
 						    </tr>
 						    <tr>
-                                <th scope="row"><label for="birth">메뉴</label></th>
-						    	<td><button type="button" class="btn btn-warning" style="color: white;"  data-bs-toggle="modal" data-bs-target="#menu">메뉴 수정</button></td>
-						    </tr>
-						    <tr>
-                                <th scope="row"><label for="birth">사진</label></th>
+                                <th scope="row"><label for="birth">가게사진</label></th>
 						    	<td><input type="file" class="form-control" style="color: white;"></td>
 						    </tr>
+                            <tr>
+                                <th scope="row"><label for="res_intro">가게소개</label></th>
+                                <td colspan="2"><textarea class="form-control" rows="5" cols="50" id="res_intro"></textarea></td>
+                            </tr>
 						  </tbody>
                 	</table>
 					<div style="margin-left:380px;">
@@ -289,7 +313,7 @@
 		<!-- 메뉴 목록 내용 끝 -->
         <div class="modal-footer">
             <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#menuPro" style="color: white;">추가</button>
-            <button type="button" class="btn btn-primary">저장</button>
+            <button type="button" class="btn btn-warning">저장</button>
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
         </div>
       </div>
@@ -298,27 +322,27 @@
 
 <!-- 메뉴 목록 모달 창 끝 -->
 
-<!-- 메뉴 설정 모달창 -->
+<!-- 메뉴 추가 모달창 -->
 <div class="modal fade" id="menuPro" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h1 class="modal-title fs-5" id="exampleModalLabel">메뉴설정</h1>
+          <h1 class="modal-title fs-5" id="exampleModalLabel">메뉴 추가</h1>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <!-- 메뉴 설정 내용 시작 -->
         <div class="modal-body">
           <div class="row mt-3 align-items-center">
-            메뉴 이름 : <input type="text" class="form-control">
-            메뉴 설명 : <textarea rows="5" cols="30" class="form-control"></textarea>
-            메뉴 가격 : <input type="text" class="form-control">
-           	메뉴 사진 : <input type="file" class="form-control" multiple="multiple">
+          	<b>메뉴 이름</b> <input type="text" class="form-control">
+            <b>메뉴 가격</b> <input type="text" class="form-control" placeholder="숫자만 입력"> 
+            <b>메뉴 설명</b> <textarea rows="5" cols="30" class="form-control"></textarea>
+           	<b>메뉴 사진</b> <input type="file" class="form-control" multiple="multiple">
           </div>
         </div>
         <!-- 메뉴 설정 내용 끝 -->
         <div class="modal-footer">
+          <button type="button" class="btn btn-warning">저장</button>
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
-          <button type="button" class="btn btn-primary">저장</button>
         </div>
       </div>
     </div>
@@ -326,9 +350,9 @@
  <!-- 메뉴 설정 모달창 끝 -->
  
  <!-- 다음 주소 api 스크립트 시작 -->
- <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script>
-    function sample6_execDaumPostcode() {
+    function DaumPostcode() {
         new daum.Postcode({
             oncomplete: function(data) {
                 // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
@@ -361,17 +385,17 @@
                         extraAddr = ' (' + extraAddr + ')';
                     }
                     // 조합된 참고항목을 해당 필드에 넣는다.
-                    document.getElementById("sample6_extraAddress").value = extraAddr;
+                    document.getElementById("extraAddress").value = extraAddr;
                 
                 } else {
-                    document.getElementById("sample6_extraAddress").value = '';
+                    document.getElementById("extraAddress").value = '';
                 }
 
                 // 우편번호와 주소 정보를 해당 필드에 넣는다.
-                document.getElementById('sample6_postcode').value = data.zonecode;
-                document.getElementById("sample6_address").value = addr;
+                document.getElementById("postcode").value = data.zonecode;
+                document.getElementById("address").value = addr;
                 // 커서를 상세주소 필드로 이동한다.
-                document.getElementById("sample6_detailAddress").focus();
+                document.getElementById("detailAddress").focus();
             }
         }).open();
     }
