@@ -95,6 +95,12 @@ public class OwnerController {
 		return "owner/store_SalesGraph";
 	}
 	
+	// 메뉴 추가
+	@GetMapping("storeMenuInsert")
+	public String storeMenuInsert() {
+		return "owner/storeMenuInsert";
+	}
+	
 	
 	
 }
