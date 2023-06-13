@@ -1,11 +1,19 @@
 package com.hee.test;
 
+import org.springframework.beans.factory.annotation.*;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.*;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import com.hee.test.service.*;
+import com.hee.test.vo.*;
+
 @Controller
 public class OwnerController {
+	
+	@Autowired
+	private StoreService service;
 	
 	//owner의 예약관리 페이지 이동 Mapping
 	@GetMapping("StoreReservation")
@@ -95,12 +103,28 @@ public class OwnerController {
 		return "owner/store_SalesGraph";
 	}
 	
-	// 메뉴 추가
-	@GetMapping("storeMenuInsert")
-	public String storeMenuInsert() {
-		return "owner/storeMenuInsert";
+	// 가게 추가 클릭시 가게등록 작업
+	@PostMapping("storeInsertPro")
+	public String storeInsertPro(RestaurantVO restaurant, Model model) {
+		System.out.println(restaurant);
+		
+		int insertCount = service.registStore(restaurant);
+		
+		// 성공시 storeInsertSucess 리다이렉트 
+		// 실패시 fail_back.jsp 가게등록 실패 출력
+		if(insertCount > 0) {
+			
+			return "redirect:/storeInsertSucess";
+		} else {
+			
+			model.addAttribute("msg", "가게 등록 실패!");
+			return "fail_back.jsp";
+		}
 	}
 	
-	
+	@GetMapping("storeInsertSucess")
+	public String storeInsertSucess() {
+		return "owner/store_List";
+	}
 	
 }

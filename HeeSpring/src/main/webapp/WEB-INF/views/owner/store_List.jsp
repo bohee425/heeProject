@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -63,25 +64,29 @@
                     <table class="table table-striped text-center" style="margin-left:50px;">
                         <thead>
                             <tr>
-                                <th>식당이름</th>
+                                <th>사업자번호</th>
+                                <th>가게명</th>
                                 <th>전화번호</th>
-                                <th>식당주소</th>
+                                <th>주소</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
+                                <td>000-00-00000</td>
                                 <td>동백키친</td>
                                 <td>010-1234-5678</td>
                                 <td>부산 부산진구 동천로107번길</td>
                                 <td><button type="button" class="btn btn-warning" style="color: white;" onclick="location.href='StoreUpdatePage'">수정</button></td>
                             </tr>
                             <tr>
+                            	<td>000-00-00000</td>
                                 <td>동백키친</td>
                                 <td>010-1234-5678</td>
                                 <td>부산 부산진구 동천로107번길</td>
                                 <td><button type="button" class="btn btn-warning" style="color: white;" onclick="location.href='StoreUpdatePage'">수정</button></td>
                             </tr>
                             <tr>
+                            	<td>000-00-00000</td>
                                 <td>동백키친</td>
                                 <td>010-1234-5678 </td>
                                 <td>부산 부산진구 동천로107번길</td>

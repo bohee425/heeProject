@@ -96,7 +96,7 @@
             <!-- 내용 구역 -->
             <div class="col-10">
                 <!-- 가게내용 페이지 시작 -->
-                   <form action="#" method="post">
+                   <form action="storeInsertPro" method="post">
                 	<table class="table" style="margin-left: 70px; width: 58%;">
 						<tbody>
                             <tr>
@@ -147,10 +147,10 @@
 						    	<td>
 	                                <div class="row">
 	                                    <div class="col-6">
-	                                        <input class="form-control timepicker" type ="text" name="res_open1" id="res_open1"> <!-- 영업 시작 시간 -->
+	                                        <input class="form-control timepicker" type ="text" name="res_open" id="res_open1"> <!-- 영업 시작 시간 -->
 	                                    </div>
 	                                    <div class="col-6">
-	                                        <input class="form-control timepicker" type ="text" name="res_open2" id="res_open2"> <!-- 영업 마감 시간 -->
+	                                        <input class="form-control timepicker" type ="text" name="res_close" id="res_open2"> <!-- 영업 마감 시간 -->
 	                                    </div>
 	
 	                                </div>
@@ -178,10 +178,10 @@
                                 <td>
                                 	<div class="row">
 	                               	   <div class="col-6">
-	                                       <input class="form-control timepicker2" type ="text" name="res_break1" id="res_break1"> <!-- 브레이크 타임 시작 시간 -->
+	                                       <input class="form-control timepicker2" type ="text" name="res_breakstart" id="res_breakstart"> <!-- 브레이크 타임 시작 시간 -->
 	                                   </div>
 	                                   <div class="col-6">
-	                                       <input class="form-control timepicker2" type ="text" name="res_break2" id="res_break2"> <!-- 브레이크 타임 시작 시간 -->
+	                                       <input class="form-control timepicker2" type ="text" name="res_breakend" id="res_breakend"> <!-- 브레이크 타임 시작 시간 -->
 	                                   </div>
                                     </div>
                                 </td>
@@ -209,15 +209,15 @@
                                 <th scope="row">정기휴무일</th> <!-- select box -->
 						    	<td>
                                     <div class="dropdown">
-                                        <select class="form-select form-select" aria-label=".form-select example" style="width: 180px;">
-											<option selected value="planToVisit">없음</option>
-											<option value="visited">월요일</option>
-											<option value="cancelNoshow">화요일</option>
-											<option value="cancelNoshow">수요일</option>
-											<option value="cancelNoshow">목요일</option>
-											<option value="cancelNoshow">금요일</option>
-											<option value="cancelNoshow">토요일</option>
-											<option value="cancelNoshow">일요일</option>
+                                        <select name="res_holiday" class="form-select form-select" aria-label=".form-select example" style="width: 180px;">
+											<option selected value="없음">없음</option>
+											<option value="월요일">월요일</option>
+											<option value="화요일">화요일</option>
+											<option value="수요일">수요일</option>
+											<option value="목요일">목요일</option>
+											<option value="금요일">금요일</option>
+											<option value="토요일">토요일</option>
+											<option value="일요일">일요일</option>
 										</select>
 									</div>
                                 </td>
@@ -225,43 +225,75 @@
 						    <tr>
                                 <th scope="row">가게 편의 시설</th>
 						    	<td>
-								  <input class="form-check-input" type="checkbox" name="res_amenity" id="amenity">
-								  <label class="form-check-label" for="amenity">
-								    단체석
-								  </label>
-								  <input class="form-check-input" type="checkbox" name="res_amenity" id="amenity2">
-								  <label class="form-check-label" for="amenity2">
-								    주차
-								  </label>
-								  <input class="form-check-input" type="checkbox" name="res_amenity" id="amenity3">
-								  <label class="form-check-label" for="amenity3">
-								    발렛파킹
-								  </label> <br>
-								  <input class="form-check-input" type="checkbox" name="res_amenity" id="amenity4">
-								  <label class="form-check-label" for="amenity4">
-								    예약
-								  </label>
-								  <input class="form-check-input" type="checkbox" name="res_amenity" id="amenity5">
-								  <label class="form-check-label" for="amenity5">
-								    반려동물 동반
-								  </label>
-								  <input class="form-check-input" type="checkbox" name="res_amenity" id="amenity6">
-								  <label class="form-check-label" for="amenity6">
-								    장애인 편의시설
-								  </label>
+									  <input class="form-check-input" type="checkbox" name="res_amenity" id="amenity" value="단체석">
+									  <label class="form-check-label" for="amenity">
+									    단체석
+									  </label>
+									  <input class="form-check-input" type="checkbox" name="res_amenity" id="amenity2" value="주차">
+									  <label class="form-check-label" for="amenity2">
+									    주차
+									  </label>
+									  <input class="form-check-input" type="checkbox" name="res_amenity" id="amenity3" value="발렛파킹">
+									  <label class="form-check-label" for="amenity3">
+									    발렛파킹
+									  </label> <br>
+									  <input class="form-check-input" type="checkbox" name="res_amenity" id="amenity4" value="예약">
+									  <label class="form-check-label" for="amenity4">
+									    예약
+									  </label>
+									  <input class="form-check-input" type="checkbox" name="res_amenity" id="amenity5" value="반려동물 동반">
+									  <label class="form-check-label" for="amenity5">
+									    반려동물 동반
+									  </label>
+									  <input class="form-check-input" type="checkbox" name="res_amenity" id="amenity6" value="장애인 편의시설">
+									  <label class="form-check-label" for="amenity6">
+									    장애인 편의시설
+									  </label>
 						    	</td>
 						    </tr>
 						    <tr>
                                 <th scope="row"><label for="res_menu">메뉴</label></th>
-						    	<td><button type="button" id="res_menu" class="btn btn-warning" style="color: white;"  data-bs-toggle="modal" data-bs-target="#menu">메뉴 목록</button></td>
+						    	<td>
+						    		<button type="button" id="res_menu" class="btn btn-warning" style="color: white;"  data-bs-toggle="modal" data-bs-target="#menu">메뉴 추가</button>
+							 		<div class="row mt-3 align-items-center">
+							            <table class="table">
+							                <thead>
+							                  <tr>
+							                    <th scope="col" class="col-5">메뉴 이름</th>
+							                    <th scope="col" class="col-3">가격</th>
+							                    <th scope="col"></th>
+							                  </tr>
+							                </thead>
+							                <tbody class="table-group-divider">
+							                <!-- foreach 문으로 작성 -->
+							                  <tr>
+							                    <td scope="row">또루뀨막또</td>
+							                    <td>38000</td>
+							                    <td>
+								                    <button type="button" class="btn btn-warning text-white me-1" data-bs-toggle="modal" data-bs-target="#menuPro">수정</button>
+								                    <button class="btn btn-warning text-white">삭제</button>
+							                    </td>
+							                  </tr>
+							                  <tr>
+							                    <td scope="row">또루뀨막또</td>
+							                    <td>38000</td>
+							                    <td>
+								                    <button type="button" class="btn btn-warning text-white me-1" data-bs-toggle="modal" data-bs-target="#menuPro">수정</button>
+								                    <button class="btn btn-warning text-white">삭제</button>
+							                    </td>
+							                  </tr>
+							                </tbody>
+							              </table>
+							          </div>						    		
+						    	</td>
 						    </tr>
 						    <tr>
                                 <th scope="row"><label for="birth">가게사진</label></th>
-						    	<td><input type="file" class="form-control" style="color: white;"></td>
+						    	<td><input type="file" name="res_photo" class="form-control" style="color: white;"></td>
 						    </tr>
                             <tr>
                                 <th scope="row"><label for="res_intro">가게소개</label></th>
-                                <td colspan="2"><textarea class="form-control" rows="5" cols="50" id="res_intro"></textarea></td>
+                                <td colspan="2"><textarea class="form-control" rows="5" cols="50" name="res_intro" id="res_intro"></textarea></td>
                             </tr>
 						  </tbody>
                 	</table>
@@ -365,120 +397,95 @@
 		  
 
 
-<!-- 메뉴 목록 모달창 -->
+<!-- 메뉴 추가 모달창 -->
 <div class="modal fade" id="menu" tabindex="-1" aria-labelledby="menu" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h1 class="modal-title fs-5" id="menu">메뉴목록</h1>
+          <h1 class="modal-title fs-5" id="menu">메뉴 추가</h1>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-		<!-- 메뉴 목록 내용 시작 -->
-        <div class="modal-body">
-          <div class="row mt-3 align-items-center">
-            <table class="table">
-                <thead>
-                  <tr>
-                    <th scope="col" class="col-5">메뉴명</th>
-                    <th scope="col" class="col-3">가격</th>
-                    <th scope="col"></th>
-                  </tr>
-                </thead>
-                <tbody class="table-group-divider">
-                <!-- foreach 문으로 작성 -->
-                  <tr>
-                    <td scope="row">또루뀨막또</td>
-                    <td>38000</td>
-                    <td>
-	                    <button class="btn btn-warning text-white me-1" data-bs-toggle="modal" data-bs-target="#menuPro">수정</button>
-	                    <button class="btn btn-warning text-white">삭제</button>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td scope="row">또루뀨막또</td>
-                    <td>38000</td>
-                    <td>
-	                    <button class="btn btn-warning text-white me-1" data-bs-toggle="modal" data-bs-target="#menuPro">수정</button>
-	                    <button class="btn btn-warning text-white">삭제</button>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-          </div>
+		<!-- 메뉴 추가 내용 시작 -->
+		<form action="#" method="get">
+	        <div class="modal-body">
+			         <div class="container d-flex justify-content-center p-3 modal-content border-0">
+							<table>
+								<tr>
+									<th>메뉴 이름</th>
+									<td><input type="text" class="form-control"></td>
+								</tr>
+								<tr>
+									<th>메뉴 가격</th>
+									<td><input type="text" class="form-control"  placeholder="숫자만 입력"  onKeyup="this.value=this.value.replace(/[^0-9]/g,'');"/></td>
+								</tr>
+								<tr>
+									<th>메뉴 설명</th>
+									<td><textarea rows="5" cols="30" class="form-control"></textarea></td>
+								</tr>
+								<tr>
+									<th>메뉴 사진</th>
+									<td><input type="file" class="form-control" multiple="multiple"></td>
+								</tr>
+							</table>
+					</div>
+		   </div>
+			<!-- 메뉴 추가 내용 끝 -->
+    	   <div class="modal-footer">
+            <button type="submit" class="btn btn-warning" id="storeMenuInsert" style="color: white;">추가</button>
+          	<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
+       	   </div>
+		</form>
+      </div>
+    </div>
+</div>
+<!-- 메뉴 추가 모달창 -->
+
+<!-- 메뉴 수정 모달창 -->
+<div class="modal fade" id="menuPro" tabindex="-1" aria-labelledby="menuPro" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="menu">메뉴 수정</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-		<!-- 메뉴 목록 내용 끝 -->
+		<!-- 메뉴 수정 내용 시작 -->
+        <div class="modal-body">
+	         <div class="container d-flex justify-content-center p-3 modal-content border-0">
+				<form action="#" method="get">
+					<table>
+						<tr>
+							<th>메뉴 이름</th>
+							<td><input type="text" class="form-control"></td>
+						</tr>
+						<tr>
+							<th>메뉴 가격</th>
+							<td>
+								<input type="text" class="form-control" placeholder="숫자만 입력" onKeyup="this.value=this.value.replace(/[^0-9]/g,'');"/>
+							</td>
+						</tr>
+						<tr>
+							<th>메뉴 설명</th>
+							<td><textarea rows="5" cols="30" class="form-control"></textarea></td>
+						</tr>
+						<tr>
+							<th>메뉴 사진</th>
+							<td><input type="file" class="form-control" multiple="multiple"></td>
+						</tr>
+					</table>
+				</form>
+			</div>
+        </div>
+		<!-- 메뉴 수정 내용 끝 -->
         <div class="modal-footer">
-            <button class="btn btn-warning" id="storeMenuInsert" style="color: white;" >추가</button>
-            <button type="button" class="btn btn-warning">저장</button>
+            <button type="submit" class="btn btn-warning" id="storeMenuInsert" style="color: white;" >수정</button>
           	<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
         </div>
       </div>
     </div>
 </div>
-<script>
+<!-- 메뉴 수정 모달창 -->
 
 
-$(document).ready(function() {
-		// 페이지가 완전히 로드된 이후에
-		// 모달창 안에 버튼을 아래와 같이 선택자로 지정해준다. - 2중 모달창일 경우에
-		$("#storeMenuInsert").on("click", function() {
-			  $('#storeMenuInsert').click(function() {
-				  // 모달창안에 컨텐츠를 비워준다.
-				  // .html('');
-				   $('.modal-content').empty();               
-				   $.ajax({
-					   // 주소를 "storeMenuInsert" 이 부분만 수정해주면 된다.
-					   url: '<c:url value="storeMenuInsert"/>',                
-					   type: 'GET',                
-					   dataType: 'html',                
-					   success: function(response) {                                    
-						   $('.modal-content').html(response);                  
- 						   // $('').modal('show');                 
-						   },                
-						   error: function(xhr, status, error) {                  
-							   console.log(error);                 
-							   }              
-						   });            
-				   });   
-	    	});
-		
-
-}); 
-
-</script>
-
-
-<!-- 메뉴 목록 모달 창 끝 -->
-
-<!-- 메뉴 추가 모달창 -->
-<!-- <div class="modal fade" tabindex="-1"  id="menuPro" aria-labelledby="menuPro" aria-hidden="true" > -->
-<!--     <div class="modal-dialog"> -->
-<!--       <div class="modal-content"> -->
-<!--         <div class="modal-header"> -->
-<!--           <h1 class="modal-title fs-5" id="menuPro">메뉴 추가</h1> -->
-<!--           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
-<!--         </div> -->
-<!--         메뉴 설정 내용 시작 -->
-<!--           	<form action="#" method="post"> -->
-<!-- 		        <div class="modal-body"> -->
-<!-- 		          <div class="row mt-3 align-items-center"> -->
-<!-- 			          	<b>메뉴 이름</b> <input type="text" class="form-control"> -->
-<!-- 			            <b>메뉴 가격</b> <input type="text" class="form-control" placeholder="숫자만 입력">  -->
-<!-- 			            <b>메뉴 설명</b> <textarea rows="5" cols="30" class="form-control"></textarea> -->
-<!-- 			           	<b>메뉴 사진</b> <input type="file" class="form-control" multiple="multiple"> -->
-<!-- 		          </div> -->
-<!-- 		        </div> -->
-<!-- 		        메뉴 설정 내용 끝 -->
-<!-- 		        <div class="modal-footer"> -->
-<!-- 		          <button type="submit" class="btn btn-warning">저장</button> -->
-<!-- 		          <button type="button" class="btn btn-secondary" data-bs-target="#menu">닫기</button> -->
-<!-- 		        </div> -->
-<!--          	</form> -->
-<!--       </div> -->
-<!--     </div> -->
-<!--   </div> -->
- <!-- 메뉴 설정 모달창 끝 -->
- 
     
     <!-- 하단 부분 include 처리영역 -->
     <hr class="mt-5">
