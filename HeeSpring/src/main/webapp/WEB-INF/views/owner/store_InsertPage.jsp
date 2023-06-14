@@ -147,13 +147,20 @@
 						    	<td>
 	                                <div class="row">
 	                                    <div class="col-6">
-	                                        <input class="form-control timepicker" type ="text" name="res_open" id="res_open1"> <!-- 영업 시작 시간 -->
+	                                    	<!-- 영업 시작 시간 -->
+	                                        <input class="form-control timepicker" id="timepicker_open" type="text" name="res_open"> 
+<!-- 	                                        <input class="form-control timepicker" id="timepicker_open" type="text">  -->
+<!-- 	                                        <input type="text" id="res_open" name="res_open"> -->
 	                                    </div>
 	                                    <div class="col-6">
-	                                        <input class="form-control timepicker" type ="text" name="res_close" id="res_open2"> <!-- 영업 마감 시간 -->
+	                                   		 <!-- 영업 마감 시간 -->
+	                                        <input class="form-control timepicker" id="timepicker_close" type="text" name="res_close"> 
+<!-- 	                                        <input class="form-control timepicker" id="timepicker_close" type="text">  -->
+<!-- 	                                        <input type="text" id="res_close" name="res_close"> -->
 	                                    </div>
 	
 	                                </div>
+	                                
 	                                <!-- 영업시간 24시간으로 표시하는 jQuery -->
 	                                <script src="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
 	                                <script type="text/javascript">
@@ -169,7 +176,12 @@
 			                                    dropdown: true,
 			                                    scrollbar: true
 			                                });
-		                                });   
+			                                
+// 			                                $('#timepicker_open').on('change', function() {
+// 			                                  $('#res_open').val($(this).val() + ":00");
+// 			                                });
+			                                
+		                                }); 
 	                                </script>
                             	</td>
 						    </tr>
@@ -406,25 +418,25 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
 		<!-- 메뉴 추가 내용 시작 -->
-		<form action="#" method="get">
+		<form action="menuInsert" method="post">
 	        <div class="modal-body">
 			         <div class="container d-flex justify-content-center p-3 modal-content border-0">
 							<table>
 								<tr>
 									<th>메뉴 이름</th>
-									<td><input type="text" class="form-control"></td>
+									<td><input type="text" class="form-control" name="menu_name"></td>
 								</tr>
 								<tr>
 									<th>메뉴 가격</th>
-									<td><input type="text" class="form-control"  placeholder="숫자만 입력"  onKeyup="this.value=this.value.replace(/[^0-9]/g,'');"/></td>
+									<td><input type="text" pattern="" class="form-control" name="menu_price" placeholder="숫자만 입력"  onKeyup="this.value=this.value.replace(/[^0-9]/g,'');"/></td>
 								</tr>
 								<tr>
 									<th>메뉴 설명</th>
-									<td><textarea rows="5" cols="30" class="form-control"></textarea></td>
+									<td><textarea rows="5" cols="30" class="form-control" name="menu_intro"></textarea></td>
 								</tr>
 								<tr>
 									<th>메뉴 사진</th>
-									<td><input type="file" class="form-control" multiple="multiple"></td>
+									<td><input type="file" name="menu_photo" class="form-control" multiple="multiple"></td>
 								</tr>
 							</table>
 					</div>

@@ -1,5 +1,7 @@
 package com.hee.test.vo;
 
+import java.sql.*;
+
 import lombok.*;
 
 /*

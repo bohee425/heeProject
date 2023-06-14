@@ -127,4 +127,10 @@ public class OwnerController {
 		return "owner/store_List";
 	}
 	
+	@PostMapping("menuInsert")
+	public String menuInsert(MenuVO menu) {
+		System.out.println(menu);
+		return "";
+	}
+	
 }
