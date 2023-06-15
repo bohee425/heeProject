@@ -1,5 +1,7 @@
 package com.hee.test.mapper;
 
+import java.util.*;
+
 import org.apache.ibatis.annotations.*;
 
 import com.hee.test.vo.*;
@@ -8,5 +10,7 @@ import com.hee.test.vo.*;
 public interface StoreMapper {
 
 	int insertStore(RestaurantVO restaurant);
+
+	List<RestaurantVO> selectRestaurantList();
 
 }

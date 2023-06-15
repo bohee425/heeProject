@@ -189,10 +189,13 @@
                                 <th scope="row">브레이크타임</th> <!-- select box -->
                                 <td>
                                 	<div class="row">
-	                               	   <div class="col-6">
+	                               	   <div class="col-2">
+	                                	  <input type="checkbox" id="nobreak"> 없음
+	                                   </div>
+	                               	   <div class="col-5">
 	                                       <input class="form-control timepicker2" type ="text" name="res_breakstart" id="res_breakstart"> <!-- 브레이크 타임 시작 시간 -->
 	                                   </div>
-	                                   <div class="col-6">
+	                                   <div class="col-5">
 	                                       <input class="form-control timepicker2" type ="text" name="res_breakend" id="res_breakend"> <!-- 브레이크 타임 시작 시간 -->
 	                                   </div>
                                     </div>
@@ -206,11 +209,17 @@
 			                                    interval: 60, // 시간 간격
 			                                    minTime: '09', // 최소 시간
 			                                    maxTime: '22:00', // 최대 시간
-			                                    defaultTime: '09', // 기본값
+// 			                                    defaultTime: '09', // 기본값
 			                                    startTime: '09:00', // 시작시간
 			                                    dynamic: true,
 			                                    dropdown: true,
 			                                    scrollbar: true
+			                                });
+			                                
+			                                // 체크 박스 선택시 브레이크타임 시간 null값으로 변경, disabled 상태로 바꿔주기
+			                                $("#nobreak").change(function() {
+			                                    var isChecked = $(this).is(":checked");
+			                                    $("#res_breakstart, #res_breakend").prop("disabled", isChecked).val(isChecked ? "" : null);
 			                                });
 		                                });   
 	                                </script>

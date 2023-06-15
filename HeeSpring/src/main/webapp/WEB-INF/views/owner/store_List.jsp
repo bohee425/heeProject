@@ -71,6 +71,9 @@
                             </tr>
                         </thead>
                         <tbody>
+                        	<tr>
+                        		<td>${restaurantList }</td>
+                        	</tr>
                             <tr>
                                 <td>000-00-00000</td>
                                 <td>동백키친</td>

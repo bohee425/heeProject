@@ -1,5 +1,7 @@
 package com.hee.test;
 
+import java.util.*;
+
 import org.springframework.beans.factory.annotation.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.*;
@@ -55,11 +57,7 @@ public class OwnerController {
 	public String StoreUpdatePage() {
 		return "owner/store_UpdatePage";
 	}
-	//owner의 식당리스트로 이동 Mapping
-	@GetMapping("StoreList")
-	public String StoreList() {
-		return "owner/store_List";
-	}
+
 	
 	//owner의 식당마이페이지에서 수정후 이동 Mapping
 	@PostMapping("StoreMypagePro")
@@ -122,8 +120,18 @@ public class OwnerController {
 		}
 	}
 	
+	// 가게 등록 성공시 StoreList로 리다이렉트
 	@GetMapping("storeInsertSucess")
 	public String storeInsertSucess() {
+		return "redirect:/StoreList";
+	}
+	
+	//owner의 식당리스트로 이동 Mapping
+	// 가게 목록 조회
+	@GetMapping("StoreList")
+	public String StoreList(Model model) {
+		List<RestaurantVO> restaurantList = service.getRestaurantList();
+		model.addAttribute("restaurantList", restaurantList);
 		return "owner/store_List";
 	}
 	
@@ -132,5 +140,6 @@ public class OwnerController {
 		System.out.println(menu);
 		return "";
 	}
+	
 	
 }

@@ -24,5 +24,10 @@
 			)
 	
 	</insert>
+	
+	<select id="selectRestaurantList" resultType="com.hee.test.vo.RestaurantVO">
+		SELECT * 
+			FROM restaurant
+	</select>
 
 </mapper>

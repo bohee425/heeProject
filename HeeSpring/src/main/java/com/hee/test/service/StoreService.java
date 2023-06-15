@@ -1,5 +1,7 @@
 package com.hee.test.service;
 
+import java.util.*;
+
 import org.springframework.beans.factory.annotation.*;
 import org.springframework.stereotype.*;
 
@@ -13,6 +15,9 @@ public class StoreService {
 	private StoreMapper mapper;
 	public int registStore(RestaurantVO restaurant) {
 		return mapper.insertStore(restaurant);
+	}
+	public List<RestaurantVO> getRestaurantList() {
+		return mapper.selectRestaurantList();
 	}
 
 }
