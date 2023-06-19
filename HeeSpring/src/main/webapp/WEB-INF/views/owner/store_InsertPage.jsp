@@ -129,10 +129,10 @@
 								<td>
 								<!-- 다음 api 사용 -->
 								<div class="input-group mb-3">
-									<input type="text" id="postcode" class="form-control" name="res_postcode" placeholder="우편번호" aria-label="Recipient's username" aria-describedby="button-addon2">
-									<input type="button" onclick="DaumPostcode()" value="우편번호 찾기" class="btn btn-outline-secondary" id="button-addon2">
+									<input type="text" class="form-control" id="address" name="res_address" placeholder="주소" readonly>
+									<input type="button" onclick="DaumPostcode()" value="주소 찾기" class="btn btn-outline-secondary" id="button-addon2">
 								</div>									
-                                <input type="text" class="form-control" id="address" name="res_address" placeholder="주소" readonly>
+                                
 								<div class="input-group mb-3 mt-2">
                                     <input type="text" class="form-control" id="detailAddress" name="res_detailAddress" placeholder="상세주소"> 
 									<input type="text" class="form-control" id="extraAddress" placeholder="참고항목">
@@ -149,14 +149,10 @@
 	                                    <div class="col-6">
 	                                    	<!-- 영업 시작 시간 -->
 	                                        <input class="form-control timepicker" id="timepicker_open" type="text" name="res_open"> 
-<!-- 	                                        <input class="form-control timepicker" id="timepicker_open" type="text">  -->
-<!-- 	                                        <input type="text" id="res_open" name="res_open"> -->
 	                                    </div>
 	                                    <div class="col-6">
 	                                   		 <!-- 영업 마감 시간 -->
 	                                        <input class="form-control timepicker" id="timepicker_close" type="text" name="res_close"> 
-<!-- 	                                        <input class="form-control timepicker" id="timepicker_close" type="text">  -->
-<!-- 	                                        <input type="text" id="res_close" name="res_close"> -->
 	                                    </div>
 	
 	                                </div>
@@ -225,11 +221,11 @@
 	                                </script>
                                 
                             </tr>
-						    <!-- 영업 시간 끝 -->
-<!-- 						    <tr> -->
-<!-- 						    	<th scope="row">하루 예약 인원수</th> -->
-<!-- 						    	<td><input type="text" class="form-control" name="res_headcount" placeholder="숫자만 입력"  onKeyup="this.value=this.value.replace(/[^0-9]/g,'');"></td> -->
-<!-- 						    </tr> -->
+							<!--영업 시간 끝 -->
+						    <tr>
+						    	<th scope="row">하루 예약 인원수</th>
+						    	<td><input type="text" class="form-control" name="res_headcount" placeholder="숫자만 입력"  onKeyup="this.value=this.value.replace(/[^0-9]/g,'');"></td>
+						    </tr>
 						    <tr>
                                 <th scope="row">정기휴무일</th> <!-- select box -->
 						    	<td>
@@ -387,7 +383,6 @@
                 }
 
                 // 주소 정보를 해당 필드에 넣는다.
-                document.getElementById('postcode').value = data.zonecode;
                 document.getElementById("address").value = addr;
                 // 커서를 상세주소 필드로 이동한다.
                 document.getElementById("detailAddress").focus();
